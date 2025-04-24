@@ -1,0 +1,45 @@
+[package]
+name = "mtc-config"
+description = "crate lib to implement generic configuration that can be saved in workspace root dir configs for any crate in  mtc"
+version = "0.1.0"
+license.workspace = true
+edition.workspace = true
+authors.workspace = true
+homepage.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+
+[lib]
+crate-type = ["rlib","dylib", "staticlib"]
+
+
+[dependencies]
+serde.workspace = true
+thiserror.workspace=true
+tempdir.workspace=true
+directories.workspace=true
+mtc-config-derive.workspace=true
+
+
+[lints]
+workspace = true
+
+
+
+[features]
+default = ["toml"]
+json = ["dep:serde_json"]
+toml = ["dep:toml"]
+yaml = ["dep:serde_yaml"]
+
+[dependencies.serde_json]
+workspace = true
+optional = true
+
+[dependencies.toml]
+workspace = true
+optional = true
+
+[dependencies.serde_yaml]
+workspace = true
+optional = true

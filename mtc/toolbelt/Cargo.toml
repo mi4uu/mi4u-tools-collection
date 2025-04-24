@@ -1,0 +1,20 @@
+[package]
+name = "mi4u-toolbelt"
+description = "crate lib with some common dev experience quality improving tools"
+version = "0.1.0"
+license.workspace = true
+edition.workspace = true
+authors.workspace = true
+homepage.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+bon.workspace = true
+mtc-config.workspace = true
+dirs.workspace = true
+regex.workspace = true
+serde.workspace = true
+
+[lints]
+workspace = true

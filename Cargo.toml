@@ -1,0 +1,86 @@
+
+[workspace]
+resolver = "3"
+members = ["mtc/*"]
+
+
+[workspace.package]
+name = "mi4u-tools-collection"
+authors = ["Michał Lipiński <michal@mirrorboards.io>"]
+homepage = "https://github.com/mtc/mtc-api"
+repository = "https://github.com/mtc/mtc-api"
+description = "mi4u-tools-collection"
+
+edition = "2024"
+rust-version = "1.88.0"
+license = "GPL-3"
+
+
+
+[workspace.dependencies]
+
+# members
+mtc-config={path="mtc/config"}
+mtc-config-derive={path = "mtc/config-derive"}
+mtc-toolbelt={path="mtc/toolbelt"}
+mtc-mkabook={path="mtc/mkabook"}
+
+# tokio = { version="1.7", features = ["full"] }
+# tokio-stream = "0.1.8"
+# tokio-util = "0.7"
+
+# prost = "0.13"
+# prost-types = "0.13"
+
+
+# tonic = "0.8"
+# prost = "0.11"
+# futures="0.3"
+
+
+futures-util = "0.3.17"
+http = "1"
+
+regex="1"
+dirs="1"
+
+# log teace
+tracing = "0.1.36"
+tracing-subscriber = "0.3"
+
+# serialization 
+serde={version = "1", features = ["derive"]}
+serde-derive={version = "1"}
+serde_json = "1.0"
+serde_yaml="*"
+toml="0.8"
+
+# dx / quality of life
+strum = "0.27"
+strum_macros = "0.27"
+better_default = "1"
+indoc = "2.0.5"
+directories="*"
+bon="3.5"
+# errors
+anyhow = "1"
+thiserror = "*"
+
+
+# templates
+minijinja = "2"
+
+
+#### mock / testing
+mockall = "0.11.4"
+mockito = "1.2.0"
+tempdir = "0.3.7"
+# names = { version = "0.14.0", default-features = false }
+
+#### bench
+# criterion = {version="0.5.1", features = ["tokio","futures", "async", "html_reports"]}
+
+
+
+[workspace.lints]
+clippy = {}

@@ -1,0 +1,9 @@
+[env]
+RUSTFLAGS="-C link-arg=-fuse-ld=lld"
+
+WORKSPACE_ROOT_DIR = { value = "", relative = true }
+BOOK_DIR = { value = "docs/book", relative = true }
+CRATES_ROOT_DIR = { value = "crates/", relative = true }
+ASSETS_DIR = { value = "static/assets", relative = true }
+CONFIG_ROOT_DIR = { value = "config/", relative = true }
+OUT_DIR= { value = "target/out", relative = true }
