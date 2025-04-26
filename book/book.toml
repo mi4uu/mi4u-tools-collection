@@ -1,0 +1,49 @@
+[book]
+authors = ["Michał Lipiński <michal@mirrorboards.io>"]
+language = "en"
+src = "src"
+title = "mtc-make-a-book"
+
+[rust]
+
+[output.html]
+git_repository_url = "https://github.com/mi4uu/mi4u-tools-collection/tree/main"
+edit_url_template = "https://github.com/mi4uu/mi4u-tools-collection/edit/main/{path}"
+additional_js = []
+additional_css = ["mdbook-protobuf.css"]
+
+[output.html.search]
+limit_results = 20
+use_boolean_and = true
+boost_title = 2
+boost_hierarchy = 2
+boost_paragraph = 1
+expand = true
+heading_split_level = 2
+
+[output.html.playground]
+editable = true
+copyable = true
+copy_js = true
+line_numbers = true
+runnable = true
+
+[output.html.fold]
+enable = true
+level = 0
+
+[build]
+create_missing = false
+
+[preprocessor.callouts]
+after = ["autosummary"]
+
+[preprocessor.protobuf]
+after = ["autosummary"]
+command = "mdbook-protobuf"
+proto_descriptor = "./build/proto_file_descriptor_set.pb"
+nest_under = "Protocol"
+proto_url_root = "https://github.com/zakhenry/mdbook-protobuf/tree/master/demo/proto/"
+
+[preprocessor.kroki_preprocessor]
+after = ["autosummary"]

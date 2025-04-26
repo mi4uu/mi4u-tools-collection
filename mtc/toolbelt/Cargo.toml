@@ -1,5 +1,5 @@
 [package]
-name = "mi4u-toolbelt"
+name = "mtc-toolbelt"
 description = "crate lib with some common dev experience quality improving tools"
 version = "0.1.0"
 license.workspace = true
@@ -15,6 +15,9 @@ mtc-config.workspace = true
 dirs.workspace = true
 regex.workspace = true
 serde.workspace = true
+duct.workspace=true
+
+anyhow.workspace=true
 
 [lints]
 workspace = true

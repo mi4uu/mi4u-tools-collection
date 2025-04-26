@@ -1,4 +1,4 @@
-use std::env;
+use std::{env, path::PathBuf};
 
 #[macro_export]
 macro_rules! set_env_var {
@@ -7,6 +7,80 @@ macro_rules! set_env_var {
             std::env::set_var($key, $value);
         }
     };
+}
+
+
+/// get path buf for package
+pub fn get_toolbelt_package_root() ->std::path::PathBuf {
+    std::path::PathBuf::from(std::env!("CARGO_MANIFEST_DIR"))
+}
+
+#[macro_export]
+macro_rules! get_package_root {
+    () => {
+        std::path::PathBuf::from(std::env!("CARGO_MANIFEST_DIR"))
+    };
+}
+
+
+
+fn get_workspace_root_one_lv_up(package_dir:PathBuf) ->Option<std::path::PathBuf> {
+    match  package_dir.parent(){
+        Some(parent_dir)=> {
+        let cargo_maby=parent_dir.join("Cargo.toml");
+            if cargo_maby.exists() {
+                return Some(parent_dir.to_path_buf())
+            }
+            return None
+
+
+        },
+        None=> None
+        
+    }
+}
+
+/// get path buf for workspace
+/// 
+/// ```rust
+/// 
+/// use mtc_toolbelt::env_utils::get_workspace_root;
+/// 
+/// let workspace_root=get_workspace_root();
+/// assert_eq!(std::fs::canonicalize(workspace_root).unwrap(), std::fs::canonicalize(std::path::PathBuf::from(std::env!("CARGO_MANIFEST_DIR")).join("../..")).unwrap())
+/// ```
+pub fn get_workspace_root() ->std::path::PathBuf {
+    let package_dir= get_package_root!();
+    // check 1 lv up
+    if let Some(workspace_dir) = get_workspace_root_one_lv_up(package_dir){
+        return workspace_dir;
+    }
+    // check 2 lv up
+    if let Some(package_dir)= get_package_root!().parent(){
+        if let Some(workspace_dir) = get_workspace_root_one_lv_up(package_dir.to_path_buf()){
+            return workspace_dir;
+        }
+        // check 3 lv up
+        if let Some(package_dir)= package_dir.parent(){
+            if let Some(workspace_dir) = get_workspace_root_one_lv_up(package_dir.to_path_buf()){
+                return workspace_dir;
+            }
+            // if more nested than you doing it wrong
+        }
+
+    }
+
+   
+
+ get_package_root!()
+}
+
+/// Change to workspace root.
+///
+/// Assumed this xtask is located in `[WORKSPACE]/crates/xtask-build-man`.
+pub fn cwd_to_workspace_root() -> std::io::Result<()> {
+    let ws_root = get_workspace_root();
+    std::env::set_current_dir(ws_root)
 }
 
 /// for setting scoped env var

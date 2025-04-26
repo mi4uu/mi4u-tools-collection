@@ -1,0 +1,32 @@
+[package]
+name = "mtc-curious-neighbour"
+version = "0.1.0"
+license.workspace = true
+edition.workspace = true
+authors.workspace = true
+homepage.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+anyhow.workspace=true
+# env_logger = "0.9"
+serde.workspace=true
+chrono.workspace=true
+serde_json.workspace=true
+tracing-subscriber.workspace=true 
+tracing.workspace=true
+tracing-fluent-assertions = "0.3.0"
+tracing-tracy = "0.11.4"
+tracing-logfmt = "0.3.5"
+tracing-bunyan-formatter ={version =  "0.3.10", optional = true}
+
+
+bon.workspace=true
+once_cell.workspace=true
+# opentelemetry-jaeger = "0.22.0"
+# opentelemetry = {version="0.29.1", features=["metrics","logs"]}
+# opentelemetry-semantic-conventions = "0.29.0"
+# opentelemetry_sdk = {version="0.29.0",features=["metrics","logs"]}
+# opentelemetry-appender-tracing = { version = "0.29.1", features = ["tracing-opentelemetry", "log"] }
+# opentelemetry-stdout = { version = "0.29.0", features = ["metrics"] }

@@ -7,8 +7,8 @@ members = ["mtc/*"]
 [workspace.package]
 name = "mi4u-tools-collection"
 authors = ["Michał Lipiński <michal@mirrorboards.io>"]
-homepage = "https://github.com/mtc/mtc-api"
-repository = "https://github.com/mtc/mtc-api"
+homepage = "https://github.com/mi4uu/mi4u-tools-collection"
+repository = "https://github.com/mi4uu/mi4u-tools-collection"
 description = "mi4u-tools-collection"
 
 edition = "2024"
@@ -23,7 +23,7 @@ license = "GPL-3"
 mtc-config={path="mtc/config"}
 mtc-config-derive={path = "mtc/config-derive"}
 mtc-toolbelt={path="mtc/toolbelt"}
-mtc-mkabook={path="mtc/mkabook"}
+mtc-mkbook={path="mtc/mkbook"}
 
 # tokio = { version="1.7", features = ["full"] }
 # tokio-stream = "0.1.8"
@@ -44,9 +44,18 @@ http = "1"
 regex="1"
 dirs="1"
 
+html2md = "0.2.15"
+duct = "0.13.7"
+man = "0.3.0"
+xshell = "0.2.7"
+once_cell = "1.21.3"
+
 # log teace
-tracing = "0.1.36"
-tracing-subscriber = "0.3"
+tracing = {version="0.1.41", features=["std","log","attributes"]}
+tracing-subscriber = { version = "0.3", features = ["tracing", "json","time", "serde", "chrono","env-filter","registry", "std", "fmt"] }
+chrono = { version = "0.4.40", features = ["serde", "std"] }
+
+
 
 # serialization 
 serde={version = "1", features = ["derive"]}
@@ -55,6 +64,9 @@ serde_json = "1.0"
 serde_yaml="*"
 toml="0.8"
 
+clap = { version = "4.4.12"  }
+fs_extra = "1.3.0"
+glob = "0.3.1"
 # dx / quality of life
 strum = "0.27"
 strum_macros = "0.27"
@@ -63,7 +75,7 @@ indoc = "2.0.5"
 directories="*"
 bon="3.5"
 # errors
-anyhow = "1"
+anyhow = {version = "1",features = ["backtrace"]}
 thiserror = "*"
 
 
@@ -84,3 +96,6 @@ tempdir = "0.3.7"
 
 [workspace.lints]
 clippy = {}
+
+[workspace.metadata.book]
+dir="book"

@@ -43,8 +43,7 @@ use thiserror::Error;
 
 // Re-export the derive macro
 pub use mtc_config_derive::Configuration;
-pub use serde::{Deserialize, Serialize};
-
+pub use serde::{*};
 /// Errors that can occur when working with configurations.
 ///
 /// This enum provides specific error types for different failure scenarios

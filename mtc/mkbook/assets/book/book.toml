@@ -1,0 +1,49 @@
+[book]
+authors = ["Michał Lipiński <michal@mirrorboards.io>"]
+language = "en"
+src = "src"
+title = "pay2vault-api"
+
+[rust]
+edition = "2024"
+
+[output.html]
+git-repository-url = "https://github.com/pay2vault/pay2vault-api/tree/main"
+edit-url-template = "https://github.com/pay2vault/pay2vault-api/edit/main/other/book/{path}"
+additional-css = ["mdbook-protobuf.css"]
+
+[output.html.search]
+limit-results = 20
+use-boolean-and = true
+boost-title = 2
+boost-hierarchy = 2
+boost-paragraph = 1
+expand = true
+heading-split-level = 2
+
+
+[build]
+create-missing = false
+
+[output.html.playground]
+editable = true         # allows editing the source code
+copyable = true          # include the copy button for copying code snippets
+copy-js = true           # includes the JavaScript for the code editor
+line-numbers = true     # displays line numbers for editable code
+runnable = true          # displays a run button for rust code
+
+
+
+[output.html.fold]
+enable = true
+level = 1
+
+[preprocessor.callouts]
+
+[preprocessor.protobuf]
+command = "mdbook-protobuf"
+proto_descriptor = "./build/proto_file_descriptor_set.pb"
+nest_under = "Protocol"
+proto_url_root = "https://github.com/zakhenry/mdbook-protobuf/tree/master/demo/proto/"
+
+[preprocessor.kroki-preprocessor]

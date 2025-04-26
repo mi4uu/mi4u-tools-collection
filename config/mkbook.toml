@@ -1,0 +1,9 @@
+dir = "book"
+authors = ["Michał Lipiński <michal@mirrorboards.io>"]
+title = "mtc-make-a-book"
+homepage = "https://github.com/mi4uu/mi4u-tools-collection"
+repository_url = "https://github.com/mi4uu/mi4u-tools-collection/tree/main"
+repository_edit_url = "https://github.com/mi4uu/mi4u-tools-collection/edit/main/{path}"
+copy_extra_dirs = []
+disable_packages = []
+enable_packages = []
