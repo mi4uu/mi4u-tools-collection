@@ -13,7 +13,7 @@ description = "mi4u-tools-collection"
 
 edition = "2024"
 rust-version = "1.88.0"
-license = "GPL-3"
+license = "AGPL-3.0-or-later"
 
 
 
